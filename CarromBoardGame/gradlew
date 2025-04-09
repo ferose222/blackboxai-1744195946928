@@ -1,0 +1,11 @@
+#!/bin/sh
+set -e
+
+GRADLE_USER_HOME="$HOME/.gradle"
+export GRADLE_USER_HOME
+
+if [ -z "$GRADLE_HOME" ]; then
+  GRADLE_HOME="$(dirname "$0")/gradle/wrapper/gradle-wrapper.jar"
+fi
+
+exec java -jar "$GRADLE_HOME" "$@"
